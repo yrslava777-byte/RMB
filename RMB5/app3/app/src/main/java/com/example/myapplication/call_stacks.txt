@@ -1,0 +1,57 @@
+Древовидная схема связей функций
+onCreate()			 	            // точка входа
+        applyWindowInsets() 		// задаём отступы
+        bindViews()			        // связываем Kotlin-переменные с элементами интерфейса
+        setupListeners()		    // подключаем обработчики событий
+        	setupChipGroupListener()
+                chipGroupModes.setOnCheckedStateChangeListener()
+                    setNewDuration()
+                        updateTimerDisplay()
+                        updateDurationText(minutes)
+                        updateProgressBar(reset = true)
+                        updateButtons()
+
+        	setupSliderListener()
+                sliderMinutes.addOnChangeListener()
+                    setNewDuration()
+                        updateTimerDisplay()
+                        updateDurationText(minutes)
+                        updateProgressBar(reset = true)
+                        updateButtons()
+
+
+        	setupButtonListeners()
+                buttonStart.setOnClickListener()
+                    startTimer()
+                        CountDownTimer.start()
+                            updateTimerDisplay()
+                            updateProgressBar()
+                            resetTimer()
+                                updateTimerDisplay()
+                                updateProgressBar(reset = true)
+                                updateButtons()
+                        updateButtons()
+
+			    buttonPause.setOnClickListener()
+                	resumeTimer()
+                	    startTimer()
+                            CountDownTimer.start()
+                                updateTimerDisplay()
+                                updateProgressBar()
+                                resetTimer()
+                                    updateTimerDisplay()
+                                        updateProgressBar(reset = true)
+                                        updateButtons()
+               		pauseTimer()
+					    updateButtons()
+
+			    buttonReset.setOnClickListener()
+            		resetTimer()
+                        updateTimerDisplay()
+                        updateProgressBar(reset = true)
+                        updateButtons()
+        renderInitialState()		// первичная отрисовка состояния
+        	updateTimerDisplay()
+        	updateDurationText(sliderMinutes.value.toInt())
+        	updateProgressBar(reset = true)
+        	updateButtons()
